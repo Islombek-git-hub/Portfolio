@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+
 import { useSelector } from "react-redux";
 import NavLinks from "../../components/Navlinks/NavLinks";
 import "./Contact.css";
@@ -10,9 +11,39 @@ import { BsInstagram } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { RiMailSendLine } from "react-icons/ri";
 // import Example from "../../components/Example";
-
+import emailjs from "@emailjs/browser";
 const Contact = () => {
   const lightValue = useSelector((state) => state.light);
+  const [inp_name, setInp_name] = useState("");
+  const [inp_email, setInp_email] = useState("");
+  const [inp_tel, setInp_tel] = useState("");
+  const [inp_message, setInp_message] = useState("");
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_7htmiww",
+        "template_90oh6tu",
+        form.current,
+        "j2JVl3MimnPyN8MQ5"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    setInp_name("");
+    setInp_email("");
+    setInp_tel("");
+    setInp_message("");
+    alert("xabaringiz yuborildi");
+  };
   return (
     <div className={`contact ${lightValue ? "day" : "night"}`}>
       <div className="container">
@@ -76,29 +107,49 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-          <form onSubmit={(e) => e.preventDefault()} className="contact-form">
+          <form ref={form} onSubmit={sendEmail} className="contact-form">
             <div>
               <input
                 type="text"
                 className="form-input name"
                 placeholder="ISM..."
+                name="name"
+                value={inp_name}
+                onChange={(e) => {
+                  setInp_name(e.target.value);
+                }}
               />
               <input
                 type="text"
                 className="form-input email"
                 placeholder="EMAIL..."
+                name="email"
+                value={inp_email}
+                onChange={(e) => {
+                  setInp_email(e.target.value);
+                }}
               />
             </div>
             <input
               type="text"
               className="form-input telNumber"
               placeholder="Tel..."
+              name="tel"
+              value={inp_tel}
+              onChange={(e) => {
+                setInp_tel(e.target.value);
+              }}
             />
 
             <textarea
               rows="7"
               className="form-input"
               placeholder="XABAR..."
+              name="message"
+              value={inp_message}
+              onChange={(e) => {
+                setInp_message(e.target.value);
+              }}
             ></textarea>
             <button
               className={`button ${lightValue ? "resume-day" : "resume-night"}`}
