@@ -9,7 +9,7 @@ import { BsTelegram } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { RiMailSendLine } from "react-icons/ri";
-import Example from "../../components/Example";
+// import Example from "../../components/Example";
 
 const Contact = () => {
   const lightValue = useSelector((state) => state.light);
@@ -89,7 +89,12 @@ const Contact = () => {
                 placeholder="EMAIL..."
               />
             </div>
-            <Example />
+            <input
+              type="text"
+              className="form-input telNumber"
+              placeholder="Tel..."
+            />
+
             <textarea
               rows="7"
               className="form-input"
@@ -100,7 +105,7 @@ const Contact = () => {
             >
               <span>YUBORISH</span>
               <span>
-                <RiMailSendLine className="form-input" />
+                <RiMailSendLine />
               </span>
             </button>
           </form>

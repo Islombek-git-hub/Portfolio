@@ -1,6 +1,6 @@
 .contact {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .form-input {
@@ -47,6 +47,7 @@
 .contact-form div {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .name {
   width: 48%;
@@ -138,4 +139,29 @@
   height: 100%;
   opacity: 1;
   border-radius: 0;
+}
+@media (max-width: 1000px) {
+  .contact-body {
+    flex-direction: column;
+  }
+  .contact-desc {
+    width: 100%;
+  }
+  .contact-form {
+    width: 100%;
+  }
+  .social-links {
+    margin-bottom: 2rem;
+  }
+  .contact .container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 4.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .name,
+  .email {
+    width: 100%;
+  }
 }
