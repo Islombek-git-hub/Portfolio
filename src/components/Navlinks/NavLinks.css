@@ -1,0 +1,45 @@
+.navLinks {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navLinks li {
+  transition: 0.5s linear;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  margin: 0.3rem 0;
+}
+.navLinks li a {
+  position: absolute;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 100%;
+}
+.navLinks li a:hover {
+  background-color: #72b626;
+}
+
+.navLinks li a.active {
+  background-color: #72b626;
+}
+@media (max-width: 700px) {
+  .navLinks {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 4rem;
+    flex-direction: row;
+    align-items: center;
+    background-color: #555;
+  }
+  .navLinks li {
+    margin: 0 1rem;
+  }
+}

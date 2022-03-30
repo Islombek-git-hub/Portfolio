@@ -1,0 +1,27 @@
+.portfolio {
+  width: 100vw;
+  height: 100vh;
+}
+.ul_portfolio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ul_portfolio li {
+  margin: 0 1rem;
+}
+.ul_portfolio li button {
+  padding: 0.2rem 0.5rem;
+  background: none;
+  font-weight: 700;
+  color: #72b626;
+  border: none;
+  cursor: pointer;
+}
+.ul_portfolio li button:active {
+}
+.box_portfolio {
+  width: 100%;
+  height: auto;
+  border: 2px solid #72b626;
+}
