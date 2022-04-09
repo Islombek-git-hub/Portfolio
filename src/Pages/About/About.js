@@ -111,9 +111,9 @@ const About = () => {
         <div className="skills">
           <h2>ko'nikmalar</h2>
           <div className="skill">
-            {skills.map((skill) => {
+            {skills.map((skill, i) => {
               return (
-                <Example label={skill.texnology}>
+                <Example key={i + 222222} label={skill.texnology}>
                   <CircularProgressbar
                     styles={buildStyles({
                       textColor: "#72b626",
